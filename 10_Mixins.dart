@@ -2,37 +2,39 @@ abstract class Animal {}
 
 abstract class Mamifero extends Animal {}
 
+abstract class Delfin extends Mamifero {}
+
 abstract class Ave extends Animal {}
 
 abstract class Pez extends Animal {}
 
-abstract class Volador {
+mixin Volador {
   void volar() => print("I belive i can Fly");
 }
 
-abstract class Caminante {
+mixin Caminante {
   void caminar() => print("Estoy caminando");
 }
 
-abstract class Nadador {
+mixin Nadador {
   void nadar() => print("Nada");
 }
 
-class Dolphin extends Mamifero with Nadador {}
+class Dolphin extends Delfin with Nadador {}
 
-class Bat extends Mamifero with Caminante, Volador {}
+class Murcielago extends Mamifero with Caminante, Volador {}
 
-class Duck extends Ave with Caminante, Volador, Nadador {}
+class Pato extends Ave with Caminante, Volador, Nadador {}
 
 void main() {
-  final Dolphin flipper = new Dolphin();
+  Dolphin flipper = new Dolphin();
   flipper.nadar();
 
-  final Bat batman = new Bat();
+  Murcielago batman = new Murcielago();
   batman.caminar();
   batman.volar();
 
-  final Duck donald = new Duck();
+  Pato donald = new Pato();
   donald.caminar();
   donald.nadar();
   donald.volar();
